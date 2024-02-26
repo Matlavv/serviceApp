@@ -28,9 +28,17 @@ const HomeScreen = () => {
       <ScrollView>
         <View>
           <Header />
-          <Text style={tw`ml-3 font-bold text-4xl w-60`}>
-            Qui travaille aujourd'hui ?
-          </Text>
+          <View style={tw`flex-row items-center justify-between`}>
+            <Text style={tw`ml-3 font-bold text-4xl w-60`}>
+              Qui travaille aujourd'hui ?
+            </Text>
+            <TouchableOpacity
+              onPress={() => navigation.openDrawer()}
+              style={tw`mr-5`}
+            >
+              <Ionicons name="list" size={24} color="black" />
+            </TouchableOpacity>
+          </View>
           <CategoryFilter
             selectedCategory={selectedCategory}
             setSelectedCategory={setSelectedCategory}

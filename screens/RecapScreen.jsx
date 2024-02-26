@@ -41,9 +41,14 @@ const RecapScreen = ({ route }) => {
       <ScrollView>
         <View>
           <Header />
-          <Text style={[tw`ml-3 font-bold text-4xl w-60`, textStyle]}>
-            Récapitulatif du service
-          </Text>
+          <View style={tw`flex-row items-center justify-between`}>
+            <Text style={tw`ml-3 font-bold text-4xl w-60`}>
+              Récapitulatif du service
+            </Text>
+            <TouchableOpacity onPress={() => navigation.openDrawer()}>
+              <Ionicons name="add" size={24} color="black" />
+            </TouchableOpacity>
+          </View>
           <View style={tw`flex-row justify-evenly mt-10`}>
             {/* Bouton salle */}
             <TouchableOpacity>
