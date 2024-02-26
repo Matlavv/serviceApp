@@ -24,7 +24,7 @@ const HomeScreen = () => {
   };
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={tw`flex-1`}>
       <ScrollView>
         <View>
           <Header />
