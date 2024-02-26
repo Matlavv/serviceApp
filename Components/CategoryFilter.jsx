@@ -4,7 +4,11 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import tw from "twrnc";
 import UserList from "./UserList";
 
-const CategoryFilter = ({ selectedCategory, setSelectedCategory }) => {
+const CategoryFilter = ({
+  selectedCategory,
+  setSelectedCategory,
+  onUserSelectionChange,
+}) => {
   const getButtonStyle = (category) => {
     return category === selectedCategory
       ? tw`bg-[#E9E9E9] px-5 py-1 rounded-lg` // Style for selected button
@@ -46,7 +50,10 @@ const CategoryFilter = ({ selectedCategory, setSelectedCategory }) => {
           </TouchableOpacity>
         </View>
         <View style={tw`mt-5`}>
-          <UserList selectedCategory={selectedCategory} />
+          <UserList
+            selectedCategory={selectedCategory}
+            onSelectionChange={onUserSelectionChange}
+          />
         </View>
       </View>
     </SafeAreaView>

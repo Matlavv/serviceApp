@@ -14,7 +14,7 @@ const Header = () => {
   return (
     <SafeAreaView>
       <View style={tw`flex`}>
-        <Text style={tw`text-[#999999] m-3 mt-5 text-base`}>{dateString}</Text>
+        <Text style={tw`text-[#999999] m-3 text-base`}>{dateString}</Text>
       </View>
     </SafeAreaView>
   );

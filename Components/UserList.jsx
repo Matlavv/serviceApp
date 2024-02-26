@@ -3,31 +3,31 @@ import React, { useState } from "react";
 import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 import tw from "twrnc";
 
-const UserList = ({ selectedCategory }) => {
+const UserList = ({ selectedCategory, onSelectionChange }) => {
   const initialData = {
     salle: [
-      { id: 1, name: "Aaron James", checked: false },
-      { id: 2, name: "Amanda Wallace", checked: false },
-      { id: 3, name: "Angela Danger", checked: true },
-      { id: 4, name: "Abella White", checked: false },
-      { id: 5, name: "Darlene Robertson", checked: true },
-      { id: 6, name: "Fred Davis", checked: false },
+      { id: 1, name: "Aaron James", checked: false, category: "salle" },
+      { id: 2, name: "Amanda Wallace", checked: false, category: "salle" },
+      { id: 3, name: "Angela Danger", checked: false, category: "salle" },
+      { id: 4, name: "Abella White", checked: false, category: "salle" },
+      { id: 5, name: "Darlene Robertson", checked: false, category: "salle" },
+      { id: 6, name: "Fred Davis", checked: false, category: "salle" },
     ],
     cuisine: [
-      { id: 1, name: "Paul", checked: true },
-      { id: 2, name: "Mia", checked: false },
-      { id: 3, name: "Miaouss", checked: false },
-      { id: 4, name: "Rome", checked: true },
-      { id: 5, name: "Melo", checked: false },
-      { id: 6, name: "Fredo", checked: false },
+      { id: 1, name: "Paul", checked: false, category: "cuisine" },
+      { id: 2, name: "Mia", checked: false, category: "cuisine" },
+      { id: 3, name: "Miaouss", checked: false, category: "cuisine" },
+      { id: 4, name: "Rome", checked: false, category: "cuisine" },
+      { id: 5, name: "Melo", checked: false, category: "cuisine" },
+      { id: 6, name: "Fredo", checked: false, category: "cuisine" },
     ],
     service: [
-      { id: 1, name: "Pika", checked: false },
-      { id: 2, name: "Mel", checked: false },
-      { id: 3, name: "Vatira", checked: true },
-      { id: 4, name: "Zen", checked: false },
-      { id: 5, name: "Hello", checked: true },
-      { id: 6, name: "Julius", checked: false },
+      { id: 1, name: "Pika", checked: false, category: "service" },
+      { id: 2, name: "Mel", checked: false, category: "service" },
+      { id: 3, name: "Vatira", checked: false, category: "service" },
+      { id: 4, name: "Zen", checked: false, category: "service" },
+      { id: 5, name: "Hello", checked: false, category: "service" },
+      { id: 6, name: "Julius", checked: false, category: "service" },
     ],
   };
 
@@ -40,6 +40,7 @@ const UserList = ({ selectedCategory }) => {
     if (itemIndex > -1) {
       categoryData[itemIndex].checked = !categoryData[itemIndex].checked;
       setData(newData);
+      onSelectionChange(newData);
     }
   };
 
