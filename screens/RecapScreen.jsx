@@ -1,4 +1,5 @@
 import { Ionicons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -7,6 +8,7 @@ import Header from "../Components/Header";
 import SelectedEmployees from "../Components/SelectedEmployees";
 
 const RecapScreen = ({ route }) => {
+  const navigation = useNavigation();
   const { selectedEmployees } = route.params || {};
   const [darkMode, setDarkMode] = useState(false);
 
@@ -16,6 +18,10 @@ const RecapScreen = ({ route }) => {
 
   const enableDarkMode = () => {
     setDarkMode(true);
+  };
+
+  const handleNavigateToTips = () => {
+    navigation.navigate("Tips");
   };
 
   const textStyle = darkMode ? tw`text-white` : tw`text-black`;
@@ -108,6 +114,7 @@ const RecapScreen = ({ route }) => {
         </View>
         <View style={tw`flex items-center mt-10`}>
           <TouchableOpacity
+            onPress={handleNavigateToTips}
             style={tw`flex-row bg-[#FF6B4036] p-3 rounded-full w-95 items-center justify-center`}
           >
             <Text style={tw`flex text-[#FF6B40] font-semibold text-xl`}>
